@@ -98,6 +98,11 @@
         .login-form a:hover {
             text-decoration: underline;
         }
+
+        .show-password-container {
+            text-align: left;
+            margin-top: 10px;
+        }
     </style>
 </head>
 
@@ -111,11 +116,26 @@
         <form class="login-form">
             <h2>Login to Your Account</h2>
             <input type="text" placeholder="Username" required>
-            <input type="password" placeholder="Password" required>
+            <input id="password" type="password" placeholder="Password" required>
+            <div class="show-password-container">
+                <input type="checkbox" id="show-password">
+                <label for="show-password">Show Password</label>
+            </div>
             <button type="submit">Login</button>
             <p>Don't have an account? <a href="#">Register here</a></p>
         </form>
     </div>
+
+    <script>
+        document.getElementById('show-password').addEventListener('change', function() {
+            var passwordField = document.getElementById('password');
+            if (this.checked) {
+                passwordField.type = 'text';
+            } else {
+                passwordField.type = 'password';
+            }
+        });
+    </script>
 
 </body>
 
